@@ -1,534 +1,717 @@
-/* --- 1. VARIABLES --- */
+/* =========================================
+   VARIABLES
+========================================= */
 :root {
-    --color-primario: #007bff; /* Color principal (azul) */
-    --color-oscuro: #1a1a1a; /* Color oscuro para textos fuertes */
-    --color-texto: #444; /* Color general del texto */
-    --blanco: #ffffff; /* Color blanco */
-    --sombra: 0 10px 30px rgba(0,0,0,0.1); /* Sombra suave */
-    --transicion: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Animación suave */
+
+    --color-primario: #cb2591;
+    --color-oscuro: #1a1a1a;
+    --color-texto: #444;
+    --blanco: #ffabf1;
+    --sombra: 0 10px 30px rgba(0,0,0,0.1);
+    --transicion: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
 }
 
-/* Reset básico para quitar márgenes por defecto */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* Evita que el padding rompa tamaños */
+/* =========================================
+   RESET
+========================================= */
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
 }
 
-/* Configuración general del body */
-body {
-    font-family: 'Poppins', sans-serif; /* Fuente */
-    background-color: #fdfdfd; /* Fondo claro */
-    color: var(--color-texto); /* Color del texto */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Para que el footer quede abajo */
+/* =========================================
+   BODY
+========================================= */
+body{
+
+    font-family:'Poppins', sans-serif;
+    background-color:#fdfdfd;
+    color:var(--color-texto);
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+
 }
 
-/* Contenedor centrado */
-.container {
-    width: 90%;
-    max-width: 1200px; /* Ancho máximo */
-    margin: 0 auto; /* Centrar */
+/* =========================================
+   CONTENEDOR
+========================================= */
+.container{
+
+    width:90%;
+    max-width:1200px;
+    margin:0 auto;
+
 }
 
-/* --- 2. HEADER Y LOGO --- */
-header {
-    background: var(--blanco); /* Fondo blanco */
-    padding: 15px 0;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05); /* Sombra ligera */
-    position: sticky; /* Se queda fijo arriba */
-    top: 0;
-    z-index: 1000; /* Siempre encima */
+/* =========================================
+   HEADER
+========================================= */
+header{
+
+    background:var(--blanco);
+    padding:15px 0;
+    box-shadow:0 2px 15px rgba(0,0,0,0.05);
+    position:sticky;
+    top:0;
+    z-index:1000;
+
 }
 
-/* Alinea logo y menú */
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header .container{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
 }
 
-/* CONFIGURACIÓN DEL LOGO */
-.logo img {
-    height: 55px; /* Tamaño del logo */
-    width: auto;
-    display: block;
+/* =========================================
+   LOGO
+========================================= */
+.logo img{
+
+    height:55px;
+    width:auto;
+    display:block;
+
 }
 
-/* --- 3. NAVEGACIÓN Y MENÚ --- */
-.nav-menu {
-    display: flex; /* Menú en fila */
-    list-style: none; /* Quita viñetas */
-    align-items: center;
+/* =========================================
+   MENÚ
+========================================= */
+.nav-menu{
+
+    display:flex;
+    list-style:none;
+    align-items:center;
+
 }
 
-/* Separación entre opciones */
-.nav-menu > li {
-    margin-left: 25px;
-    position: relative; /* Necesario para submenú */
+.nav-menu > li{
+
+    margin-left:25px;
+    position:relative;
+
 }
 
-/* Estilo de enlaces */
-.nav-menu a {
-    text-decoration: none;
-    color: var(--color-oscuro);
-    font-weight: 500;
-    padding: 10px 0;
-    transition: var(--transicion);
-    display: block;
+.nav-menu a{
 
-    /* Permite alinear iconos con texto */
-    display: inline-flex; 
-    align-items: center; 
-    gap: 8px; 
-    text-decoration: none; 
-    color: inherit;
+    text-decoration:none;
+    color:var(--color-oscuro);
+    font-weight:500;
+    padding:10px 0;
+    transition:var(--transicion);
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
 }
 
-/* Línea animada debajo del menú */
-.nav-menu > li > a::after {
-    content: '';
-    position: absolute;
-    width: 0; /* Empieza invisible */
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--color-primario);
-    transition: var(--transicion);
+/* Línea animada */
+.nav-menu > li > a::after{
+
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    bottom:0;
+    left:0;
+    background-color:var(--color-primario);
+    transition:var(--transicion);
+
 }
 
-/* Cuando pasas el mouse aparece la línea */
-.nav-menu > li:hover > a::after {
-    width: 100%;
+.nav-menu > li:hover > a::after{
+
+    width:100%;
+
 }
 
-/* Cambio de color al pasar el mouse */
-.nav-menu a:hover {
-    color: var(--color-primario);
+.nav-menu a:hover{
+
+    color:var(--color-primario);
+
 }
 
-/* --- 4. SUBMENÚ DESPLEGABLE --- */
-.dropdown-content {
-    position: absolute;
-    top: 120%; /* Debajo del menú */
-    left: -20px;
-    background: var(--blanco);
-    min-width: 220px;
-    padding: 15px 0;
-    list-style: none;
-    border-radius: 12px; /* Bordes redondeados */
-    box-shadow: var(--sombra);
+/* =========================================
+   SUBMENÚ
+========================================= */
+.dropdown-content{
 
-    /* Oculto por defecto */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px); /* Baja un poco */
-    transition: var(--transicion);
+    position:absolute;
+    top:120%;
+    left:-20px;
+    background:var(--blanco);
+    min-width:220px;
+    padding:15px 0;
+    list-style:none;
+    border-radius:12px;
+    box-shadow:var(--sombra);
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
+    transition:var(--transicion);
+
 }
 
-/* Mostrar el submenú al pasar el mouse */
-.dropdown:hover .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+.dropdown:hover .dropdown-content{
+
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+
 }
 
-/* Estilo de opciones del submenú */
-.dropdown-content li a {
-    padding: 12px 25px;
-    font-size: 0.9rem;
-    color: var(--color-texto);
-    font-weight: 400;
+.dropdown-content li a{
+
+    padding:12px 25px;
+    font-size:0.9rem;
+    color:var(--color-texto);
+    font-weight:400;
+
 }
 
-/* Hover en submenú */
-.dropdown-content li a:hover {
-    background-color: #f8faff;
-    color: var(--color-primario);
-    padding-left: 30px; /* Se mueve a la derecha */
+.dropdown-content li a:hover{
+
+    background-color:#f8faff;
+    color:var(--color-primario);
+    padding-left:30px;
+
 }
 
-/* Botón Login resaltado */
-.btn-login {
-    background-color: var(--color-primario);
-    color: var(--blanco) !important;
-    padding: 10px 25px !important;
-    border-radius: 50px; /* Forma redonda */
-    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+/* =========================================
+   LOGIN
+========================================= */
+.btn-login{
+
+    background-color:var(--color-primario);
+    color:white !important;
+    padding:10px 25px !important;
+    border-radius:50px;
+    box-shadow:0 4px 15px rgba(203,37,145,0.4);
+
 }
 
-/* Efecto hover del botón */
-.btn-login:hover {
-    transform: translateY(-2px); /* Se levanta */
-    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+.btn-login:hover{
+
+    transform:translateY(-2px);
+    box-shadow:0 6px 20px rgba(203,37,145,0.5);
+
 }
 
-/* --- 5. RESPONSIVE --- */
-@media (max-width: 850px) {
+/* =========================================
+   BANNER SWIPER
+========================================= */
+.mainBanner{
 
-    /* Header en columna */
-    header .container {
-        flex-direction: column;
-        gap: 20px;
-    }
+    width:100%;
+    height:450px;
+    position:relative;
 
-    /* Menú se adapta */
-    .nav-menu {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .nav-menu li {
-        margin: 5px 15px;
-    }
-
-    /* Submenú en móvil */
-    .dropdown-content {
-        position: static; /* Ya no flotante */
-        box-shadow: none;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        display: none; /* Oculto */
-        background: #f1f1f1;
-    }
-
-    /* Mostrar al hacer hover */
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
 }
 
-/* --- 6. FOOTER 3 COLUMNAS --- */
-footer {
-    background: #111;
-    color: #fff;
-    padding: 60px 0 30px;
-    margin-top: auto; /* Empuja el footer abajo */
+/* Todo el slide clickeable */
+.banner-link{
+
+    text-decoration:none;
+    display:block;
+    width:100%;
+    height:100%;
+    position:relative;
+
 }
 
-/* Grid para dividir en columnas */
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive */
-    gap: 40px;
-    margin-bottom: 40px;
+.mainBanner .swiper-slide{
+
+    position:relative;
+    overflow:hidden;
+
 }
 
-/* Títulos del footer */
-.footer-col h4 {
-    color: var(--color-primario);
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.mainBanner img{
+
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transition:transform 0.5s ease;
+
 }
 
-/* Texto del footer */
-.footer-col p, .footer-col li {
-    color: #999;
-    font-size: 0.95rem;
-    margin-bottom: 12px;
+/* Zoom */
+.banner-link:hover img{
+
+    transform:scale(1.05);
+
 }
 
-/* Quita viñetas */
-.footer-col ul { 
-    list-style: none; 
+/* Overlay */
+.banner-content{
+
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-start;
+
+    padding:40px 5%;
+
+    background:linear-gradient(
+        to top,
+        rgba(0,0,0,0.7) 0%,
+        transparent 40%
+    );
+
+    box-sizing:border-box;
+
 }
 
-/* Enlaces del footer */
-.footer-col a {
-    color: #999;
-    text-decoration: none;
-    transition: var(--transicion);
+/* Caja texto */
+.text-box{
+
+    color:white;
+    max-width:80%;
+
 }
 
-/* Hover enlaces */
-.footer-col a:hover {
-    color: var(--blanco);
+.text-box h1{
+
+    font-size:2.5rem;
+    margin:0;
+    line-height:1.2;
+    font-weight:600;
+
+    text-shadow:2px 2px 10px rgba(0,0,0,0.5);
+
 }
 
-/* Parte inferior del footer */
-.footer-bottom {
-    text-align: center;
-    border-top: 1px solid #222;
-    padding-top: 25px;
-    color: #555;
-    font-size: 0.85rem;
+/* =========================================
+   SECCIONES
+========================================= */
+.seccion-info{
+
+    padding:40px 0;
+
 }
 
-/* SECCIONES */
-.seccion-info {
-    padding: 40px 0;
-}
+.titulo-seccion{
 
-.titulo-seccion {
-    margin-bottom: 25px;
-    color: var(--color-oscuro);
-    border-left: 5px solid var(--color-primario);
-    padding-left: 15px;
+    margin-bottom:25px;
+    color:var(--color-oscuro);
+    border-left:5px solid var(--color-primario);
+    padding-left:15px;
+
 }
 
 /* CONTENEDORES */
 .contenedor-dos,
-.contenedor-tres {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
+.contenedor-tres{
+
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:50px;
+
 }
 
-/* CUADROS */
-.cuadro {
-    background: var(--blanco);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease;
+/* =========================================
+   CUADROS
+========================================= */
+.cuadro{
+
+    background:var(--blanco);
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    transition:transform 0.3s ease;
+
 }
 
-.cuadro:hover {
-    transform: translateY(-5px);
+.cuadro:hover{
+
+    transform:translateY(-5px);
+
 }
 
-/* TAMAÑOS */
-.cuadro-grande {
-    flex: 1 1 calc(50% - 20px);
-    min-width: 300px;
+.cuadro-grande{
+
+    flex:1 1 calc(50% - 20px);
+    min-width:300px;
+
 }
 
-.cuadro-pequeno {
-    flex: 1 1 calc(33.33% - 20px);
-    min-width: 250px;
-    border-top: 3px solid var(--color-primario);
-    align-items: center;
+.cuadro-pequeno{
+
+    flex:1 1 calc(33.33% - 20px);
+    min-width:250px;
+    border-top:3px solid var(--color-primario);
+
 }
 
-.imagen-placeholder {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 15px;
+/* =========================================
+   IMÁGENES
+========================================= */
+.imagen-placeholder{
+
+    width:100%;
+    height:auto;
+    overflow:hidden;
+    border-radius:8px;
+    margin-bottom:15px;
+
 }
 
-.imagen-placeholder img {
-    width: 100%;
-    height: auto;
-    display: block;
+.imagen-placeholder img{
+
+    width:100%;
+    height:auto;
+    display:block;
+
 }
 
-/* BOTÓN VER MÁS */
-.leer-mas {
-    display: inline-block;
-    margin-top: 15px;
-    color: var(--color-primario);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
+/* =========================================
+   BOTÓN VER MÁS
+========================================= */
+.leer-mas{
+
+    display:inline-block;
+    margin-top:15px;
+    color:var(--color-primario);
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.9rem;
+
 }
 
-/* MEDIA */
-.media-container {
-    width: 100%;
-    height: 180px;
-    background-color: #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    overflow: hidden;
+/* =========================================
+   MEDIA
+========================================= */
+.media-container{
+
+    width:100%;
+    height:180px;
+    background-color:#1a1a1a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    margin-bottom:12px;
+    overflow:hidden;
+
 }
 
-.media-container img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
+.media-container img{
+
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+
 }
 
-.media-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    outline: none;
+.media-container video{
+
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    outline:none;
+
 }
 
-/* =========================
+/* =========================================
+   FOOTER
+========================================= */
+footer{
+
+    background:#111;
+    color:#fff;
+    padding:60px 0 30px;
+    margin-top:auto;
+
+}
+
+/* GRID */
+.footer-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+    gap:40px;
+    margin-bottom:40px;
+
+}
+
+/* TÍTULOS */
+.footer-col h4{
+
+    color:var(--color-primario);
+    margin-bottom:25px;
+    font-size:1.1rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+
+}
+
+/* TEXTOS */
+.footer-col p,
+.footer-col li{
+
+    color:#999;
+    font-size:0.95rem;
+    margin-bottom:12px;
+
+}
+
+.footer-col ul{
+
+    list-style:none;
+
+}
+
+/* LINKS */
+.footer-col a{
+
+    color:#999;
+    text-decoration:none;
+    transition:var(--transicion);
+
+}
+
+.footer-col a:hover{
+
+    color:#fff;
+
+}
+
+/* COPYRIGHT */
+.footer-bottom{
+
+    text-align:center;
+    border-top:1px solid #222;
+    padding-top:25px;
+    color:#555;
+    font-size:0.85rem;
+
+}
+
+/* =========================================
    REDES SOCIALES
-========================= */
+========================================= */
+.redes-sociales{
 
-.redes-sociales {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:20px;
+
 }
 
-.redes-sociales a {
-    color: #999;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.redes-sociales a{
+
+    color:#999;
+    text-decoration:none;
+    font-size:1rem;
+    transition:0.3s;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
 }
 
-.redes-sociales a:hover {
-    color: var(--color-primario);
-    transform: translateX(5px);
+.redes-sociales a:hover{
+
+    color:var(--color-primario);
+    transform:translateX(5px);
+
 }
 
-/* =========================
+/* =========================================
+   BOTÓN WHATSAPP
+========================================= */
+.btn-whatsapp{
+
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+
+    margin-top:20px;
+
+    background:#25D366;
+    color:white !important;
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+    font-weight:600;
+
+    transition:0.3s;
+
+}
+
+.btn-whatsapp:hover{
+
+    background:#1ebe5d;
+    transform:translateY(-3px);
+
+}
+
+/* =========================================
    MAPA
-========================= */
+========================================= */
+.mapa{
 
-.mapa {
-    margin-top: 20px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-top:20px;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+
 }
 
-.mapa iframe {
-    display: block;
+.mapa iframe{
+
+    display:block;
+
 }
 
-/* SWIPER */
-/* --- ESTILOS DEL BANNER --- */
-.mainBanner {
-    width: 100%;
-    height: 450px;
-    position: relative;
-}
-
-/* Hace que todo el slide sea clickable */
-.banner-link {
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.mainBanner .swiper-slide {
-    position: relative;
-    overflow: hidden;
-}
-
-.mainBanner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: transform 0.5s ease;
-}
-
-/* Zoom suave */
-.banner-link:hover img {
-    transform: scale(1.05);
-}
-
-/* Texto del banner */
-.banner-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: 40px 5%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 40%);
-    box-sizing: border-box;
-}
-
-.text-box {
-    color: white;
-    max-width: 80%;
-}
-
-.text-box h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    line-height: 1.2;
-    font-weight: 600;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-
-    .mainBanner {
-        height: 300px;
-    }
-
-    .text-box h1 {
-        font-size: 1.5rem;
-    }
-
-    .banner-content {
-        padding: 20px 5%;
-    }
-
-    .contenedor-dos,
-    .contenedor-tres {
-        flex-direction: column;
-    }
-
-    .cuadro-grande,
-    .cuadro-pequeno {
-        width: 100%;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-    }
-
-/* WHATSAPP FLOTANTE */
-
+/* =========================================
+   BOTÓN FLOTANTE
+========================================= */
 .whatsapp-float{
 
-    position: fixed;
-    width: 70px;
-    height: 70px;
+    position:fixed;
 
-    bottom: 25px;
-    right: 25px;
+    width:65px;
+    height:65px;
 
-    background: #25D366;
-    color: #fff;
+    bottom:25px;
+    right:25px;
 
-    border-radius: 50%;
+    background:#25D366;
+    color:white;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius:50%;
 
-    text-decoration: none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    font-size: 35px;
+    font-size:32px;
 
-    z-index: 99999;
+    text-decoration:none;
 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    box-shadow:0 5px 20px rgba(0,0,0,0.3);
 
-    transition: 0.3s ease;
+    z-index:9999;
+
+    transition:0.3s;
 
 }
 
 .whatsapp-float:hover{
 
-    transform: scale(1.1);
-    background: #1ebe5d;
+    transform:scale(1.1);
+    background:#1ebe5d;
 
 }
 
-.whatsapp-float i{
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width:850px){
 
-    color: white;
+    header .container{
+
+        flex-direction:column;
+        gap:20px;
+
+    }
+
+    .nav-menu{
+
+        flex-wrap:wrap;
+        justify-content:center;
+
+    }
+
+    .nav-menu li{
+
+        margin:5px 15px;
+
+    }
+
+    .dropdown-content{
+
+        position:static;
+        box-shadow:none;
+        opacity:1;
+        visibility:visible;
+        transform:none;
+        display:none;
+        background:#f1f1f1;
+
+    }
+
+    .dropdown:hover .dropdown-content{
+
+        display:block;
+
+    }
+
+    .contenedor-dos,
+    .contenedor-tres{
+
+        flex-direction:column;
+
+    }
+
+    .cuadro-grande,
+    .cuadro-pequeno{
+
+        width:100%;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+/* =========================================
+   RESPONSIVE BANNER
+========================================= */
+@media (max-width:768px){
+
+    .mainBanner{
+
+        height:300px;
+
+    }
+
+    .text-box h1{
+
+        font-size:1.5rem;
+
+    }
+
+    .banner-content{
+
+        padding:20px 5%;
+
+    }
 
 }
