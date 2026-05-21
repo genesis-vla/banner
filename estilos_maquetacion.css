@@ -538,7 +538,6 @@ footer{
 /* =========================================
    BOTÓN WHATSAPP
 ========================================= */
-.btn-whatsapp{
 
     display:inline-flex;
     align-items:center;
@@ -560,7 +559,6 @@ footer{
 
 }
 
-.btn-whatsapp:hover{
 
     background:#1ebe5d;
     transform:translateY(-3px);
