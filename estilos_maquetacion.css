@@ -592,50 +592,6 @@ footer{
 }
 
 /* =========================
-   WHATSAPP FLOTANTE
-========================= */
-
-.whatsapp-float{
-
-    position:fixed;
-
-    width:70px;
-    height:70px;
-
-    right:25px;
-    bottom:25px;
-
-    background:#25D366;
-
-    color:white;
-
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-decoration:none;
-
-    font-size:35px;
-
-    z-index:99999;
-
-    box-shadow:0 8px 25px rgba(0,0,0,0.3);
-
-    transition:0.3s ease;
-
-}
-
-.whatsapp-float:hover{
-
-    transform:scale(1.1);
-
-    background:#1ebe5d;
-
-}
-
-/* =========================
    RESPONSIVE
 ========================= */
 
@@ -710,5 +666,49 @@ footer{
         height:300px;
 
     }
+
+}
+
+/* =========================
+   WHATSAPP FLOTANTE
+========================= */
+
+.whatsapp-float{
+
+    position:fixed;
+
+    width:70px;
+    height:70px;
+
+    right:25px;
+    bottom:25px;
+
+    background:#25D366;
+
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    font-size:35px;
+
+    z-index:99999;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
+
+    transition:0.3s ease;
+
+}
+
+.whatsapp-float:hover{
+
+    transform:scale(1.1);
+
+    background:#1ebe5d;
 
 }
