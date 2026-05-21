@@ -1,20 +1,24 @@
-/* =========================================
+/* =========================
    VARIABLES
-========================================= */
+========================= */
+
 :root {
 
-    --color-primario: #cb2591;
+    --color-primario: #007bff;
     --color-oscuro: #1a1a1a;
     --color-texto: #444;
-    --blanco: #ffabf1;
+    --blanco: #ffffff;
+
     --sombra: 0 10px 30px rgba(0,0,0,0.1);
+
     --transicion: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 
 }
 
-/* =========================================
+/* =========================
    RESET
-========================================= */
+========================= */
+
 *{
 
     margin:0;
@@ -23,23 +27,27 @@
 
 }
 
-/* =========================================
+/* =========================
    BODY
-========================================= */
+========================= */
+
 body{
 
     font-family:'Poppins', sans-serif;
-    background-color:#fdfdfd;
+    background:#fdfdfd;
     color:var(--color-texto);
+
     display:flex;
     flex-direction:column;
+
     min-height:100vh;
 
 }
 
-/* =========================================
+/* =========================
    CONTENEDOR
-========================================= */
+========================= */
+
 .container{
 
     width:90%;
@@ -48,16 +56,21 @@ body{
 
 }
 
-/* =========================================
+/* =========================
    HEADER
-========================================= */
+========================= */
+
 header{
 
     background:var(--blanco);
+
     padding:15px 0;
+
     box-shadow:0 2px 15px rgba(0,0,0,0.05);
+
     position:sticky;
     top:0;
+
     z-index:1000;
 
 }
@@ -70,9 +83,10 @@ header .container{
 
 }
 
-/* =========================================
+/* =========================
    LOGO
-========================================= */
+========================= */
+
 .logo img{
 
     height:55px;
@@ -81,14 +95,16 @@ header .container{
 
 }
 
-/* =========================================
+/* =========================
    MENÚ
-========================================= */
+========================= */
+
 .nav-menu{
 
     display:flex;
-    list-style:none;
     align-items:center;
+
+    list-style:none;
 
 }
 
@@ -102,27 +118,35 @@ header .container{
 .nav-menu a{
 
     text-decoration:none;
+
     color:var(--color-oscuro);
+
     font-weight:500;
-    padding:10px 0;
-    transition:var(--transicion);
 
     display:inline-flex;
     align-items:center;
     gap:8px;
 
+    transition:var(--transicion);
+
 }
 
 /* Línea animada */
+
 .nav-menu > li > a::after{
 
     content:'';
+
     position:absolute;
+
     width:0;
     height:2px;
-    bottom:0;
+
+    bottom:-5px;
     left:0;
-    background-color:var(--color-primario);
+
+    background:var(--color-primario);
+
     transition:var(--transicion);
 
 }
@@ -139,24 +163,34 @@ header .container{
 
 }
 
-/* =========================================
+/* =========================
    SUBMENÚ
-========================================= */
+========================= */
+
 .dropdown-content{
 
     position:absolute;
+
     top:120%;
     left:-20px;
+
     background:var(--blanco);
+
     min-width:220px;
+
     padding:15px 0;
+
     list-style:none;
+
     border-radius:12px;
+
     box-shadow:var(--sombra);
 
     opacity:0;
     visibility:hidden;
+
     transform:translateY(20px);
+
     transition:var(--transicion);
 
 }
@@ -165,6 +199,7 @@ header .container{
 
     opacity:1;
     visibility:visible;
+
     transform:translateY(0);
 
 }
@@ -172,65 +207,73 @@ header .container{
 .dropdown-content li a{
 
     padding:12px 25px;
+
     font-size:0.9rem;
+
     color:var(--color-texto);
-    font-weight:400;
+
+    display:block;
 
 }
 
 .dropdown-content li a:hover{
 
-    background-color:#f8faff;
+    background:#f8faff;
+
     color:var(--color-primario);
+
     padding-left:30px;
 
 }
 
-/* =========================================
-   LOGIN
-========================================= */
+/* =========================
+   BOTÓN LOGIN
+========================= */
+
 .btn-login{
 
-    background-color:var(--color-primario);
+    background:var(--color-primario);
+
     color:white !important;
-    padding:10px 25px !important;
+
+    padding:10px 25px;
+
     border-radius:50px;
-    box-shadow:0 4px 15px rgba(203,37,145,0.4);
+
+    box-shadow:0 4px 15px rgba(0,123,255,0.3);
 
 }
 
 .btn-login:hover{
 
     transform:translateY(-2px);
-    box-shadow:0 6px 20px rgba(203,37,145,0.5);
 
 }
 
-/* =========================================
+/* =========================
    BANNER SWIPER
-========================================= */
+========================= */
+
 .mainBanner{
 
     width:100%;
     height:450px;
+
     position:relative;
 
 }
 
-/* Todo el slide clickeable */
 .banner-link{
 
-    text-decoration:none;
     display:block;
+
     width:100%;
     height:100%;
-    position:relative;
 
 }
 
 .mainBanner .swiper-slide{
 
-    position:relative;
     overflow:hidden;
 
 }
@@ -239,66 +282,23 @@ header .container{
 
     width:100%;
     height:100%;
+
     object-fit:cover;
-    object-position:center;
+
     transition:transform 0.5s ease;
 
 }
 
-/* Zoom */
 .banner-link:hover img{
 
     transform:scale(1.05);
 
 }
 
-/* Overlay */
-.banner-content{
-
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-
-    display:flex;
-    align-items:flex-end;
-    justify-content:flex-start;
-
-    padding:40px 5%;
-
-    background:linear-gradient(
-        to top,
-        rgba(0,0,0,0.7) 0%,
-        transparent 40%
-    );
-
-    box-sizing:border-box;
-
-}
-
-/* Caja texto */
-.text-box{
-
-    color:white;
-    max-width:80%;
-
-}
-
-.text-box h1{
-
-    font-size:2.5rem;
-    margin:0;
-    line-height:1.2;
-    font-weight:600;
-
-    text-shadow:2px 2px 10px rgba(0,0,0,0.5);
-
-}
-
-/* =========================================
+/* =========================
    SECCIONES
-========================================= */
+========================= */
+
 .seccion-info{
 
     padding:40px 0;
@@ -308,33 +308,47 @@ header .container{
 .titulo-seccion{
 
     margin-bottom:25px;
-    color:var(--color-oscuro);
+
     border-left:5px solid var(--color-primario);
+
     padding-left:15px;
+
+    color:var(--color-oscuro);
 
 }
 
-/* CONTENEDORES */
+/* =========================
+   CONTENEDORES
+========================= */
+
 .contenedor-dos,
 .contenedor-tres{
 
     display:flex;
+
     gap:20px;
+
     flex-wrap:wrap;
+
     margin-bottom:50px;
 
 }
 
-/* =========================================
+/* =========================
    CUADROS
-========================================= */
+========================= */
+
 .cuadro{
 
     background:var(--blanco);
+
     border-radius:12px;
+
     padding:20px;
+
     box-shadow:0 4px 15px rgba(0,0,0,0.05);
-    transition:transform 0.3s ease;
+
+    transition:0.3s ease;
 
 }
 
@@ -344,9 +358,12 @@ header .container{
 
 }
 
+/* tamaños */
+
 .cuadro-grande{
 
     flex:1 1 calc(50% - 20px);
+
     min-width:300px;
 
 }
@@ -354,20 +371,25 @@ header .container{
 .cuadro-pequeno{
 
     flex:1 1 calc(33.33% - 20px);
+
     min-width:250px;
+
     border-top:3px solid var(--color-primario);
 
 }
 
-/* =========================================
+/* =========================
    IMÁGENES
-========================================= */
+========================= */
+
 .imagen-placeholder{
 
     width:100%;
-    height:auto;
-    overflow:hidden;
+
     border-radius:8px;
+
+    overflow:hidden;
+
     margin-bottom:15px;
 
 }
@@ -375,39 +397,31 @@ header .container{
 .imagen-placeholder img{
 
     width:100%;
-    height:auto;
+
     display:block;
 
 }
 
-/* =========================================
-   BOTÓN VER MÁS
-========================================= */
-.leer-mas{
-
-    display:inline-block;
-    margin-top:15px;
-    color:var(--color-primario);
-    text-decoration:none;
-    font-weight:600;
-    font-size:0.9rem;
-
-}
-
-/* =========================================
+/* =========================
    MEDIA
-========================================= */
+========================= */
+
 .media-container{
 
     width:100%;
     height:180px;
-    background-color:#1a1a1a;
+
+    background:#1a1a1a;
+
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
+
     border-radius:8px;
-    margin-bottom:12px;
+
     overflow:hidden;
+
+    margin-bottom:12px;
 
 }
 
@@ -415,6 +429,7 @@ header .container{
 
     max-width:100%;
     max-height:100%;
+
     object-fit:contain;
 
 }
@@ -423,50 +438,76 @@ header .container{
 
     width:100%;
     height:100%;
+
     object-fit:contain;
-    outline:none;
 
 }
 
-/* =========================================
+/* =========================
+   VER MÁS
+========================= */
+
+.leer-mas{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    color:var(--color-primario);
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+/* =========================
    FOOTER
-========================================= */
+========================= */
+
 footer{
 
     background:#111;
-    color:#fff;
+
+    color:white;
+
     padding:60px 0 30px;
+
     margin-top:auto;
 
 }
 
-/* GRID */
+/* grid */
+
 .footer-grid{
 
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+
     gap:40px;
+
     margin-bottom:40px;
 
 }
 
-/* TÍTULOS */
+/* títulos */
+
 .footer-col h4{
 
     color:var(--color-primario);
+
     margin-bottom:25px;
-    font-size:1.1rem;
-    text-transform:uppercase;
-    letter-spacing:1px;
 
 }
 
-/* TEXTOS */
+/* textos */
+
 .footer-col p,
 .footer-col li{
 
     color:#999;
-    font-size:0.95rem;
+
     margin-bottom:12px;
 
 }
@@ -477,50 +518,52 @@ footer{
 
 }
 
-/* LINKS */
+/* links */
+
 .footer-col a{
 
     color:#999;
+
     text-decoration:none;
-    transition:var(--transicion);
+
+    transition:0.3s;
 
 }
 
 .footer-col a:hover{
 
-    color:#fff;
+    color:white;
 
 }
 
-/* COPYRIGHT */
+/* copyright */
+
 .footer-bottom{
 
     text-align:center;
+
     border-top:1px solid #222;
+
     padding-top:25px;
+
     color:#555;
-    font-size:0.85rem;
 
 }
 
-/* =========================================
+/* =========================
    REDES SOCIALES
-========================================= */
+========================= */
+
 .redes-sociales{
 
     display:flex;
     flex-direction:column;
+
     gap:12px;
-    margin-top:20px;
 
 }
 
 .redes-sociales a{
-
-    color:#999;
-    text-decoration:none;
-    font-size:1rem;
-    transition:0.3s;
 
     display:flex;
     align-items:center;
@@ -531,102 +574,77 @@ footer{
 .redes-sociales a:hover{
 
     color:var(--color-primario);
-    transform:translateX(5px);
 
 }
 
-/* =========================================
-   BOTÓN WHATSAPP
-========================================= */
-
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-
-    margin-top:20px;
-
-    background:#25D366;
-    color:white !important;
-
-    padding:12px 22px;
-
-    border-radius:50px;
-
-    text-decoration:none;
-    font-weight:600;
-
-    transition:0.3s;
-
-}
-
-
-    background:#1ebe5d;
-    transform:translateY(-3px);
-
-}
-
-/* =========================================
+/* =========================
    MAPA
-========================================= */
+========================= */
+
 .mapa{
 
     margin-top:20px;
+
     border-radius:15px;
+
     overflow:hidden;
-    box-shadow:0 4px 15px rgba(0,0,0,0.2);
 
 }
 
-.mapa iframe{
+/* =========================
+   WHATSAPP FLOTANTE
+========================= */
 
-    display:block;
+.whatsapp-float{
 
-}
+    position:fixed;
 
-/* BOTÓN WHATSAPP CONTACTO */
+    width:70px;
+    height:70px;
 
-.btn-whatsapp{
+    right:25px;
+    bottom:25px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    background:#25D366;
 
-    margin-top: 15px;
+    color:white;
 
-    background: #25D366;
-    color: white !important;
+    border-radius:50%;
 
-    padding: 10px 18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    border-radius: 50px;
+    text-decoration:none;
 
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-size:35px;
 
-    width: fit-content;
+    z-index:99999;
 
-    transition: 0.3s ease;
+    box-shadow:0 8px 25px rgba(0,0,0,0.3);
 
-}
-
-.btn-whatsapp:hover{
-
-    background: #1ebe5d;
-
-    transform: translateY(-2px);
+    transition:0.3s ease;
 
 }
 
-/* =========================================
+.whatsapp-float:hover{
+
+    transform:scale(1.1);
+
+    background:#1ebe5d;
+
+}
+
+/* =========================
    RESPONSIVE
-========================================= */
-@media (max-width:850px){
+========================= */
+
+@media(max-width:850px){
 
     header .container{
 
         flex-direction:column;
+
         gap:20px;
 
     }
@@ -647,11 +665,16 @@ footer{
     .dropdown-content{
 
         position:static;
-        box-shadow:none;
+
         opacity:1;
         visibility:visible;
+
         transform:none;
+
         display:none;
+
+        box-shadow:none;
+
         background:#f1f1f1;
 
     }
@@ -682,28 +705,9 @@ footer{
 
     }
 
-}
-
-/* =========================================
-   RESPONSIVE BANNER
-========================================= */
-@media (max-width:768px){
-
     .mainBanner{
 
         height:300px;
-
-    }
-
-    .text-box h1{
-
-        font-size:1.5rem;
-
-    }
-
-    .banner-content{
-
-        padding:20px 5%;
 
     }
 
